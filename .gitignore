@@ -11,7 +11,6 @@ __pycache__/
 # Local Workspace Artifacts
 healthlens-ai/services/__pycache__
 tmp/
-*.txt
 *.csv
 
 # OS metadata
