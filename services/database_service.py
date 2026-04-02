@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from pathlib import Path
 from datetime import datetime
 
-# Find .env in project root
+
 env_path = Path(__file__).parents[1] / '.env'
 load_dotenv(dotenv_path=env_path)
 
@@ -54,7 +54,7 @@ class DatabaseService:
         Retrieves the last X screenings from the database.
         """
         if self.db is None:
-            # RETURN MOCK DATA FOR DEMO if DB is not configured
+            
             return [
                 {
                     "timestamp_str": "2026-04-02 10:30:15",
