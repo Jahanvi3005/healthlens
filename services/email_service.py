@@ -6,7 +6,7 @@ from email.mime.multipart import MIMEMultipart
 from pathlib import Path
 from dotenv import load_dotenv
 
-# Find .env in the project root
+
 env_path = Path(__file__).parents[1] / '.env'
 load_dotenv(dotenv_path=env_path)
 
@@ -19,7 +19,7 @@ class EmailService:
         self.smtp_server = "smtp.gmail.com"
         self.smtp_port = 587
         self.gmail_user = os.getenv("GMAIL_USER")
-        self.gmail_password = os.getenv("GMAIL_APP_PASSWORD") # This is an APP PASSWORD, not your main password
+        self.gmail_password = os.getenv("GMAIL_APP_PASSWORD") 
         
     def send_report(self, dest_email, report_data):
         """
@@ -32,18 +32,18 @@ class EmailService:
         try:
             print(f"DEBUG: Initializing Gmail SMTP for {dest_email}...")
             
-            # Setup the MIME
+            
             message = MIMEMultipart("alternative")
             message["Subject"] = f"HealthLens AI Report: {report_data['urgency']} Alert"
             message["From"] = f"HealthLens AI Screening <{self.gmail_user}>"
             message["To"] = dest_email
             
-            # HTML Template
+            
             html = self.get_template(report_data)
             part = MIMEText(html, "html")
             message.attach(part)
             
-            # Connect and Send
+            
             server = smtplib.SMTP(self.smtp_server, self.smtp_port)
             server.starttls() # Secure the connection
             server.login(self.gmail_user, self.gmail_password)
