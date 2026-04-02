@@ -157,6 +157,15 @@ with gr.Blocks(css="assets/style.css") as demo:
                             with gr.Column(visible=True) as empty_log_state:
                                 gr.Markdown("*Waiting for analysis datasets to compile...*")
 
+                # Tab 3 & 4 (Placeholders)
+                with gr.TabItem("Alerts", id="alerts"):
+                    with gr.Column(elem_classes=["atlas-card"]):
+                        gr.Markdown("### **Historical Alert Cache**\n\n*Searching database records... No alerts found.*")
+
+                with gr.TabItem("Config", id="config"):
+                    with gr.Column(elem_classes=["atlas-card"]):
+                        gr.Markdown("### **Active Infrastructure Registry**\n- DB: MongoDB Protocol Atlas\n- Protocol: Global SMTP Relay\n- Reasoning: Hugging Face Backbone")
+
     # --- ATLAS EVENT BINDING ---
     submit_btn.click(
         fn=run_screening_atlas,
@@ -165,6 +174,8 @@ with gr.Blocks(css="assets/style.css") as demo:
     )
 
     btn_dash.click(fn=lambda: gr.update(selected="dash"), outputs=main_tabs)
+    btn_alerts.click(fn=lambda: gr.update(selected="alerts"), outputs=main_tabs)
+    btn_config.click(fn=lambda: gr.update(selected="config"), outputs=main_tabs)
     
     # Auto-refresh log table when clicking Results tab
     btn_results.click(fn=lambda: gr.update(selected="results"), outputs=main_tabs).then(
