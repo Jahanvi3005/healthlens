@@ -1,0 +1,18 @@
+
+# Sensitive Configs
+.env
+.env.example
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local Workspace Artifacts
+healthlens-ai/services/__pycache__
+tmp/
+*.txt
+*.csv
+
+# OS metadata
+.DS_Store
