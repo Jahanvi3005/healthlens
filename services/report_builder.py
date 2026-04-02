@@ -10,7 +10,7 @@ class ReportBuilder:
         """
         urgency_color = "#EF4444" if "HIGH" in data['urgency'] or "EMERGENCY" in data['urgency'] else "#F59E0B" if "MODERATE" in data['urgency'] else "#10B981"
         
-        # Avoid backslashes in f-string expressions for Python < 3.12 compatibility
+        
         precautions_text = "\n".join([f"- {p}" for p in data['precautions']])
         
         md_content = f"""
