@@ -15,7 +15,6 @@ body, .gradio-container {
     margin: 0 !important;
 }
 
-/* Force Workspace Alignment */
 .main-workspace-container {
     padding: 2.5rem !important;
     display: flex !important;
@@ -23,7 +22,7 @@ body, .gradio-container {
     gap: 2rem !important;
 }
 
-/* Sidebar Perfection */
+
 .sidebar-navigation {
     background: var(--sidebar-bg) !important;
     border-right: 1px solid var(--border-zinc) !important;
@@ -34,24 +33,24 @@ body, .gradio-container {
     gap: 1rem !important;
 }
 
-/* Hide Redundant Gradio Tab Bar */
+
 .tabs > .tab-nav {
     display: none !important;
 }
 
-/* Unified Atlas Cards */
+
 .atlas-card {
     background: var(--card-bg) !important;
     border: 1px solid var(--border-zinc) !important;
     border-radius: 12px !important;
     padding: 24px !important;
-    height: 100% !important; /* Forces equal height in columns */
+    height: 100% !important; /
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
 }
 
-/* Input Consistency */
+
 .gradio-container input, .gradio-container textarea {
     background: #000000 !important;
     border: 1px solid #27272A !important;
@@ -63,7 +62,7 @@ body, .gradio-container {
     border-color: var(--atlas-blue) !important;
 }
 
-/* Sidebar Button Refinement */
+
 .btn-nav {
     background: transparent !important;
     text-align: left !important;
@@ -87,7 +86,7 @@ body, .gradio-container {
     font-weight: 700 !important;
 }
 
-/* Atlas Primary CTA */
+
 .btn-atlas {
     background: var(--atlas-blue) !important;
     color: white !important;
@@ -98,7 +97,7 @@ body, .gradio-container {
     cursor: pointer !important;
 }
 
-/* Results Markdown Animation */
+
 .result-markdown {
     background: #000000 !important;
     padding: 20px !important;
@@ -113,7 +112,7 @@ body, .gradio-container {
 
 footer { display: none !important; }
 
-/* Mobile Responsiveness */
+
 .mobile-sidebar {
     display: none !important;
 }
