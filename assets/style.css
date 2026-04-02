@@ -112,3 +112,19 @@ body, .gradio-container {
 }
 
 footer { display: none !important; }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .sidebar-navigation {
+        height: auto !important;
+        border-right: none !important;
+        border-bottom: 1px solid var(--border-zinc) !important;
+        padding: 1rem !important;
+    }
+    .main-workspace-container {
+        padding: 1rem !important;
+    }
+    .atlas-card {
+        min-width: 100% !important;
+    }
+}
