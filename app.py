@@ -4,11 +4,14 @@ import os
 import warnings
 import tempfile
 import pandas as pd
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 
 # Silence Warnings
 warnings.filterwarnings("ignore", category=UserWarning, module="urllib3")
-load_dotenv()
 
 from services.image_preprocess import preprocessor
 from services.triage_engine import triage_engine
