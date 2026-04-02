@@ -114,7 +114,18 @@ body, .gradio-container {
 footer { display: none !important; }
 
 /* Mobile Responsiveness */
+.mobile-sidebar {
+    display: none !important;
+}
+
 @media (max-width: 768px) {
+    .desktop-sidebar {
+        display: none !important;
+    }
+    .mobile-sidebar {
+        display: block !important;
+        margin-bottom: 1rem !important;
+    }
     .sidebar-navigation {
         height: auto !important;
         border-right: none !important;

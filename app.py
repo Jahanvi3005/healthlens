@@ -103,7 +103,7 @@ with gr.Blocks(css="assets/style.css") as demo:
 
     # MAIN WORKSPACE AREA
     with gr.Row():
-        with gr.Column(scale=1):
+        with gr.Column(scale=1, elem_classes=["desktop-sidebar"]):
             with gr.Column(elem_classes=["sidebar-navigation"]):
                 gr.Markdown("### WORKSPACE")
                 btn_dash = gr.Button("🏠 Integrated Dashboard", elem_classes=["btn-nav", "btn-nav-active"])
@@ -112,6 +112,13 @@ with gr.Blocks(css="assets/style.css") as demo:
                 btn_config = gr.Button("⚙️ System Config", elem_classes=["btn-nav"])
         
         with gr.Column(scale=4):
+            # Mobile-only toggle navigation
+            with gr.Accordion("☰ Workspace Navigation", open=False, elem_classes=["mobile-sidebar"]):
+                btn_dash_m = gr.Button("🏠 Integrated Dashboard", elem_classes=["btn-nav"])
+                btn_results_m = gr.Button("📊 Analysis Results", elem_classes=["btn-nav"])
+                btn_alerts_m = gr.Button("🔔 Safety Alerts", elem_classes=["btn-nav"])
+                btn_config_m = gr.Button("⚙️ System Config", elem_classes=["btn-nav"])
+                
             with gr.Tabs(selected="dash") as main_tabs:
                 
                 # Tab 1: Clinical Dashboard
@@ -177,8 +184,16 @@ with gr.Blocks(css="assets/style.css") as demo:
     btn_alerts.click(fn=lambda: gr.update(selected="alerts"), outputs=main_tabs)
     btn_config.click(fn=lambda: gr.update(selected="config"), outputs=main_tabs)
     
+    # Mobile Event Bindings
+    btn_dash_m.click(fn=lambda: gr.update(selected="dash"), outputs=main_tabs)
+    btn_alerts_m.click(fn=lambda: gr.update(selected="alerts"), outputs=main_tabs)
+    btn_config_m.click(fn=lambda: gr.update(selected="config"), outputs=main_tabs)
+    
     # Auto-refresh log table when clicking Results tab
     btn_results.click(fn=lambda: gr.update(selected="results"), outputs=main_tabs).then(
+        fn=refresh_logs, outputs=log_table
+    )
+    btn_results_m.click(fn=lambda: gr.update(selected="results"), outputs=main_tabs).then(
         fn=refresh_logs, outputs=log_table
     )
 
